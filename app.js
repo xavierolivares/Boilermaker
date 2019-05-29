@@ -8,16 +8,16 @@ const bodyParser = require('body-parser')
 app.use(morgan('dev'))
 
 //serve up static files from public folder
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, './public'))) 
 
 //need a json and url encoded parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use('/api', require('./apiRoutes'))
+app.use('/api', require('./server/apiRoutes'))
 
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './path/to/index.html'));
+    res.sendFile(path.join(__dirname, './index.html'));
   });
 
 app.use(function (err, req, res, next) {
