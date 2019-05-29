@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use('/api', require('./apiRoutes'))
 
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './path/to/index.html');
+    res.sendFile(path.join(__dirname, './path/to/index.html'));
   });
 
 app.use(function (err, req, res, next) {
