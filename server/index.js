@@ -1,5 +1,6 @@
 //create server/index.js file use express
 const express = require('express')
+const path = require('path')
 const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
@@ -7,18 +8,18 @@ const bodyParser = require('body-parser')
 //install and use morgan
 app.use(morgan('dev'))
 
-//serve up static files from public folder
-app.use(express.static(path.join(__dirname, './public'))) 
-
 //need a json and url encoded parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use('/api', require('./server/apiRoutes'))
+//serve up static files from public folder
+app.use(express.static(path.join(__dirname, '..', './public'))) 
+
+app.use('/api', require('./apiRoutes'))
 
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './index.html'));
-  });
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
 
 app.use(function (err, req, res, next) {
     console.error(err);
