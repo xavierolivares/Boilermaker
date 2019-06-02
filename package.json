@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "start-dev": "webpack -w & nodemon server/index.js --ignore public"
+    "start-dev": "webpack -w & nodemon server/index.js "
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,8 @@
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -21,6 +23,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "sequelize": "^5.8.7",
     "server": "^1.0.18",
     "start": "^5.1.0"
   },
@@ -29,6 +32,8 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   }

@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 //serve up static files from public folder
-app.use(express.static(path.join(__dirname, '..', './public'))) 
+app.use(express.static(path.join(__dirname, '..', 'public'))) 
 
 app.use('/api', require('./apiRoutes'))
 
@@ -30,6 +30,6 @@ app.use(function (err, req, res, next) {
 const port = process.env.PORT || 3000; // this can be very useful if you deploy to Heroku!
 app.listen(port, function () {
   console.log("Knock, knock");
-  console.log("Who's there?");
-  console.log(`Your server, listening on port ${port}`);
+  console.log("Open up the door, it's real");
+  console.log(`X gon give it to ya on port ${port}`);
 });

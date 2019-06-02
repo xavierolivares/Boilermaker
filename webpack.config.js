@@ -1,3 +1,5 @@
+
+
 module.exports = {
     entry: './client/index.js', // assumes your entry point is the index.js in the root of your project folder
     mode: 'development',
@@ -5,15 +7,25 @@ module.exports = {
       path: __dirname, // assumes your bundle.js will also be in the root of your project folder
       filename: './public/bundle.js'
     },
-    devtool: 'source-maps',
+    devtool: 'source-map',
     module: {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components)/,
           use: {
             loader: 'babel-loader'
           }
+          // options: {
+          //   presets: ['react', 'es2015']
+          // }
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'css-loader',
+            'style-loader'
+          ]
         }
       ]
     }
