@@ -4,6 +4,7 @@ const path = require('path')
 const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const {db} = require('./db')
 
 //install and use morgan
 app.use(morgan('dev'))
@@ -28,8 +29,22 @@ app.use(function (err, req, res, next) {
 });
 
 const port = process.env.PORT || 3000; // this can be very useful if you deploy to Heroku!
-app.listen(port, function () {
-  console.log("Knock, knock");
-  console.log("Open up the door, it's real");
-  console.log(`X gon give it to ya on port ${port}`);
-});
+
+// db.sync()
+//   .then(() => {
+//     console.log('The database is synced!')
+//     app.listen(PORT, () => console.log(`
+//       Listening on port ${PORT}
+//       http://localhost:3000/
+//     `))
+//   })
+
+db.sync()
+  .then(() => {
+    console.log('db is synced')
+    app.listen(port, () => {
+    console.log("Knock, knock");
+    console.log("Open up the door, it's real");
+    console.log(`X gon give it to ya on port ${port}`);
+  });
+})
