@@ -6,7 +6,7 @@ import store from './store'
 
 ReactDOM.render(
     <Provider store={store}>
-    <div>Welcome to the Jungle</div>
+    <div>X gon give it to ya</div>
     </Provider>,
     document.getElementById('app')
 )

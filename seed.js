@@ -1,9 +1,10 @@
-const { db, User, Puppy, Kitten } = require('./server/db')
+const { db, User, Puppy, Kitten, Secret } = require('./server/db')
 
 const seed = async () => {
     try {
         await db.sync({force: true})
-        await User.create({name: 'Mama Bear'})
+        await User.create({name: 'Mama Bear', email: 's@aol.com', password: '123'})
+        await User.create({name: 'x', email: 'x@gmail.com', password: '123'})
         await Puppy.create({name: 'Sparky'})
         await Kitten.create({name: 'Fuerza'})
         console.log('seed success!')
